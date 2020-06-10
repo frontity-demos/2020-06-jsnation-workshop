@@ -281,7 +281,7 @@ Let’s take a look at `state.source.data`. This is where the information for ea
 Specifically we are going to look at `state.source.data`. The information for each URL is stored there. If /informacion/faqwe inspect we can see that it is a page and has the ID 146.
 
 <p align="center">
-  <img alt="Frontity in the console" src="assets/console-2.png">
+  <img alt="Frontity in the console" src="assets/console-2.png" width="600">
 </p>
 
 With that information, we can access the data (title, content, etc) of that page with `state.source.page[146]`:
@@ -301,7 +301,7 @@ Please note that instead of using `state.source.data[url]` it’s better to use 
 So now let’s inspect the homepage using state.source.get("/"):
 
 <p align="center">
-  <img alt="Frontity in the console" src="assets/console-4.png">
+  <img alt="Frontity in the console" src="assets/console-4.png" width="600">
 </p>
 
 As you can see, it has several interesting properties such as `isHome`, `isArchive`, and an array of `items`. If the homepage were a category it would have an `isCategory` property. If it were a post it would have a `isPost` property, etc...
