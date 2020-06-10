@@ -17,11 +17,9 @@ const List = ({ state, actions }) => {
             })}
             <PrevNextNav>
                 { data.previous ? <button onClick={e => {
-                    e.preventDefault()
                     actions.router.set(data.previous)
                 }}>&#171; Prev</button> : ' ' }
                 { data.next ? <button onClick={e => {
-                    e.preventDefault()
                     actions.router.set(data.next)
                 }}>Next &#187;</button> : ' ' }
             </PrevNextNav>
