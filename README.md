@@ -268,7 +268,7 @@ In order to gain a better understanding of Frontity, let’s dig a little deeper
 
 To do so, access `http://localhost:3000/lorem-ipsum/` in the browser and open the console. In the console type `frontity.state` to see the Frontity state. This is the same state that the components and actions have access to.
 
-<p align="center">
+<p>
   <img alt="Frontity in the console" src="assets/console-1.png">
 </p>
 
@@ -280,13 +280,13 @@ Let’s take a look at `state.source.data`. This is where the information for ea
 
 Specifically we are going to look at `state.source.data`. The information for each URL is stored there. If /informacion/faqwe inspect we can see that it is a page and has the ID 146.
 
-<p align="center">
+<p>
   <img alt="Frontity in the console" src="assets/console-2.png" width="600">
 </p>
 
 With that information, we can access the data (title, content, etc) of that page with `state.source.page[146]`:
 
-<p align="center">
+<p>
   <img alt="Frontity in the console" src="assets/console-3.png">
 </p>
 
@@ -300,8 +300,8 @@ Please note that instead of using `state.source.data[url]` it’s better to use 
 
 So now let’s inspect the homepage using state.source.get("/"):
 
-<p align="center">
-  <img alt="Frontity in the console" src="assets/console-4.png" width="600">
+<p>
+  <img alt="Frontity in the console" src="assets/console-4.png" width="700">
 </p>
 
 As you can see, it has several interesting properties such as `isHome`, `isArchive`, and an array of `items`. If the homepage were a category it would have an `isCategory` property. If it were a post it would have a `isPost` property, etc...
