@@ -192,6 +192,8 @@ export default jsNationTheme
 
 Save both files and check that everything is still working in the browser.
 
+> *[Back to top](#table-of-contents)*
+
 ## 4. Connect it to the state
 
 Let’s connect the `<Root>` component to the Frontity state using `connect`. This allows us to access data stored in the state.
@@ -218,6 +220,8 @@ const Root = ({ state }) => {
 export default connect(Root);
 ```
 You can try changing the URL to something like http://localhost:3000/hello-frontity to see how the `state.router.link` changes.
+
+> *[Back to top](#table-of-contents)*
 
 ## 5. Add a menu
 
@@ -270,6 +274,8 @@ const Root = ({ state }) => {
   );
 };
 ```
+
+> *[Back to top](#table-of-contents)*
 
 ## 6. Use data from the current URL
 
@@ -342,6 +348,8 @@ const Root = ({ state }) => {
   );
 };
 ```
+
+> *[Back to top](#table-of-contents)*
 
 ## 7. Display the list of posts
 
@@ -423,6 +431,8 @@ const  List  = ({ state }) => {
 };
 ```
 
+> *[Back to top](#table-of-contents)*
+
 ## 8. Display the content of posts
 
 Create a new file called `post.js`. This will contain the `<Post>` component which we will use to display the title and the content of the posts.
@@ -471,6 +481,8 @@ const Root = ({ state }) => {
   );
 };
 ```
+
+> *[Back to top](#table-of-contents)*
 
 ## 9. Display the content of posts and pages separately
 
@@ -550,6 +562,8 @@ const Root = ({ state }) => {
   );
 };
 ```
+
+> *[Back to top](#table-of-contents)*
 
 ## 10. Add some style
 
@@ -905,6 +919,8 @@ const PostInfo = styled.div`
 `
 ```
 
+> *[Back to top](#table-of-contents)*
+
 ## 11. Add Dynamic Styling
 
 CSS-in-JS allows us to modify the styling of elements dynamically. Let's take a look at how we can do this.
@@ -954,6 +970,8 @@ const Header = styled.header`
 ```
 
 Awesome, our site is starting to look pretty good now!
+
+> *[Back to top](#table-of-contents)*
 
 ## 12. Use state and actions
 
@@ -1085,6 +1103,8 @@ const Button = styled.button`
 `
 ```
 
+> *[Back to top](#table-of-contents)*
+
 ## 13. Add Pagination
 
 Click on the `More posts` link in the menu to navigate to `/page/2` and examine `frontity.state` in the console. You will notice that the data for the page has both `previous` and `next` properties.
@@ -1158,6 +1178,8 @@ const PrevNextNav = styled.div`
 
 We've included conditional checks so that the 'Previous' button doesn't show on the first page and the 'Next' button doesn't show on the last page, as they're not needed in those locations.
 
+> *[Back to top](#table-of-contents)*
+
 ## 14. Add tags to the `<head>` element
 
 You can use React to add tags to the `<head>` of your document. Tags such as a title and a description can be important for SEO so it makes sense for your theme to include them.
@@ -1194,6 +1216,8 @@ Check your document with the browser devtools and you should see these showing u
   <img alt="Frontity in the console" src="assets/console-6.png" width="800">
 </p>
 
+> *[Back to top](#table-of-contents)*
+
 ## 15. Conclusion
 
 At this point you have a basic but fully functional and visually pleasing Frontity theme that you can go on to build upon.
@@ -1203,6 +1227,8 @@ Once you have a completed project you can then find out [how to deploy it](https
 Below you can find further resources to help you with developing projects with Frontity.
 
 Thanks for following to the end, and we wish you every success with your future endeavours with Frontity.
+
+> *[Back to top](#table-of-contents)*
 
 ## 16. Frontity Channels
 
@@ -1214,3 +1240,4 @@ We'd love for you to be part of our ever-growing community. There are a variety 
 - 🗣 **Social media**: interact with other Frontity users. Reach out to us on [Twitter](https://twitter.com/frontity). Mention us in your tweets about Frontity and what you're building by using `@frontity`.
 - 💌 **Newsletter**: do you want to receive the latest news about Frontity and find out as soon as there's an update to the framework? Subscribe to our [newsletter](https://frontity.org/).
 
+> *[Back to top](#table-of-contents)*
