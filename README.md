@@ -21,6 +21,7 @@ This readme also contains full instructions for creating the project from scratc
 13. [Add pagination](#add-pagination)
 14. [Add tags to the `<head>` element](#add-tags-to-the-head-element)
 15. [Conclusion](#conclusion)
+16. [Frontity Channels](#frontity-channels)
 
 ## 1. Create a Frontity Project
 
@@ -1085,7 +1086,7 @@ const Button = styled.button`
 Click on the `More posts` link in the menu to navigate to `/page/2` and examine `frontity.state` in the console. You will notice that the data for the page has both `previous` and `next` properties.
 
 <p>
-  <img alt="Frontity in the console" src="assets/console-5.png" width="600">
+  <img alt="Frontity in the console" src="assets/console-5.png" width="700">
 </p>
 
 We can use these properties to add pagination to our `<List>` component. We will add a `<PrevNextNav>` component to style two buttons that enable us to page through the lists of posts.
@@ -1186,33 +1187,24 @@ Check your document with the browser devtools and you should see these showing u
 
 
 <p>
-  <img alt="Frontity in the console" src="assets/console-6.png" width="700">
+  <img alt="Frontity in the console" src="assets/console-6.png" width="800">
 </p>
 
 ## 15. Conclusion
 
-At this point
+At this point you have a basic but fully functional and visually pleasing Frontity theme that you can go on to build upon.
 
+Once you have a completed project you can then find out [how to deploy it](https://docs.frontity.org/deployment).
 
+Below you can find further resources to help you with developing projects with Frontity.
 
----
+## 16. » Frontity Channels
 
-> Get more info about [how to deploy](https://docs.frontity.org/deployment) a Frontity project
-
----
-
-### » Frontity Channels 🌎
-
-We have different channels at your disposal where you can find information about the project, discuss about it and get involved:
+We'd love for you to be part of our ever-growing community. There are a variety of different ways in which you can find information about the project, discuss about it, and contribute to it.
 
 - 📖 **[Docs](https://docs.frontity.org)**: this is the place to learn how to build amazing sites with Frontity.
-- 👨‍👩‍👧‍👦 **[Community](https://community.frontity.org/)**: use our forum to [ask any questions](https://community.frontity.org/c/dev-talk-questions), feedback and meet great people. This is your place too to share [what are you building with Frontity](https://community.frontity.org/c/showcases)!
-- 🐞 **[GitHub](https://github.com/frontity/frontity)**: we use GitHub for bugs and pull requests. Questions are answered in the [community forum](https://community.frontity.org/)!
-- 🗣 **Social media**: a more informal place to interact with Frontity users, reach out to us on [Twitter](https://twitter.com/frontity).
-- 💌 **Newsletter**: do you want to receive the latest framework updates and news? Subscribe [here](https://frontity.org/)
+- 👨‍👩‍👧‍👦 **[Community forum](https://community.frontity.org/)**: join our forum and ask questions, share your knowledge, give us feedback and tell us how we're doing, and meet other cool Frontity people. We'd also love to know about what you're building with Frontity, so please do swing by the [forum](https://community.frontity.org/c/dev-talk-questions)and tell us about your projects.
+- 🐞 **[GitHub](https://github.com/frontity/frontity)**: we use GitHub for bugs and pull requests. See our [Contributing section](#https://docs.frontity.org/contributing) to find out how you can help develop Frontity, or improve this documentation.
+- 🗣 **Social media**: interact with other Frontity users. Reach out to us on [Twitter](https://twitter.com/frontity). Mention us in your tweets about Frontity and what you're building by using `@frontity`.
+- 💌 **Newsletter**: do you want to receive the latest news about Frontity and find out as soon as there's an update to the framework? Subscribe to our [newsletter](https://frontity.org/).
 
-### » Get involved 🤗
-
-Got questions or feedback about Frontity? We'd love to hear from you. Use our [community forum](https://community.frontity.org) yo ! ❤️
-
-Frontity also welcomes contributions. There are many ways to support the project! If you don't know where to start, this guide might help → [How to contribute?](https://docs.frontity.org/contributing/how-to-contribute)
