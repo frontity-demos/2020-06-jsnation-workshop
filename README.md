@@ -6,10 +6,10 @@ This readme also contains full instructions for creating the project from scratc
 
 ## Table of Contents
 
-1. [Create a Frontity Project](#Create-a-Frontity-Project)
-2. [Create a custom theme from scratch](#Create-a-custom-theme-from-scratch)
-3. [Modify the first component](#Modify-the-first-component)
-4. [Connect it to the state](#connect-it-to-the-state)
+1. [Create a Frontity Project](#1-create-a-Frontity-Project)
+2. [Create a custom theme from scratch](#2-create-a-custom-theme-from-scratch)
+3. [Modify the first component](#3-modify-the-first-component)
+4. [Connect it to the state](#4-connect-it-to-the-state)
 5. [Add a menu](#add-a-menu)
 6. [Use data from the current URL](#use-data-from-the-current-URL)
 7. [Display the list of posts](#display-the-list-of-posts)
