@@ -1198,6 +1198,8 @@ Once you have a completed project you can then find out [how to deploy it](https
 
 Below you can find further resources to help you with developing projects with Frontity.
 
+We wish you every success with your future endeavours with Frontity.
+
 ## 16. » Frontity Channels
 
 We'd love for you to be part of our ever-growing community. There are a variety of different ways in which you can find information about the project, discuss about it, and contribute to it.
