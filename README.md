@@ -10,18 +10,18 @@ This readme also contains full instructions for creating the project from scratc
 2. [Create a custom theme from scratch](#2-create-a-custom-theme-from-scratch)
 3. [Modify the first component](#3-modify-the-first-component)
 4. [Connect it to the state](#4-connect-it-to-the-state)
-5. [Add a menu](#add-a-menu)
-6. [Use data from the current URL](#use-data-from-the-current-URL)
-7. [Display the list of posts](#display-the-list-of-posts)
-8. [Display the content of posts](#display-the-content-of-posts)
-9. [Display the content of posts and pages separately](#display-the-content-of-posts-and-pages-separately)
-10. [Add some style](#add-some-style)
-11. [Add dynamic styling](#add-dynamic-styling)
-12. [Use state and actions](#use-state-and-actions)
-13. [Add pagination](#add-pagination)
-14. [Add tags to the `<head>` element](#add-tags-to-the-head-element)
-15. [Conclusion](#conclusion)
-16. [Frontity Channels](#frontity-channels)
+5. [Add a menu](#5-add-a-menu)
+6. [Use data from the current URL](#6-use-data-from-the-current-URL)
+7. [Display the list of posts](#7-display-the-list-of-posts)
+8. [Display the content of posts](#8-display-the-content-of-posts)
+9. [Display the content of posts and pages separately](#9-display-the-content-of-posts-and-pages-separately)
+10. [Add some style](#10-add-some-style)
+11. [Add dynamic styling](#11-add-dynamic-styling)
+12. [Use state and actions](#12-use-state-and-actions)
+13. [Add pagination](#13-add-pagination)
+14. [Add tags to the `<head>` element](#14-add-tags-to-the-head-element)
+15. [Conclusion](#15-conclusion)
+16. [Frontity Channels](#16-frontity-channels)
 
 ## 1. Create a Frontity Project
 
@@ -1200,7 +1200,7 @@ Below you can find further resources to help you with developing projects with F
 
 Thanks for following to the end, and we wish you every success with your future endeavours with Frontity.
 
-## 16. » Frontity Channels
+## 16. Frontity Channels
 
 We'd love for you to be part of our ever-growing community. There are a variety of different ways in which you can find information about the project, discuss about it, and contribute to it.
 
