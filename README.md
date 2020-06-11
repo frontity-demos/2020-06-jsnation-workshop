@@ -16,8 +16,9 @@ This readme also contains full instructions for creating the project from scratc
 8. [Display the content of posts](#display-the-content-of-posts)
 9. [Display the content of posts and pages separately](#display-the-content-of-posts-and-pages-separately)
 10. [Add some style](#add-some-style)
-11. Use state and actions
-12. Add tags to the <head>
+11. [Add dynamic styling](#add-dynamic-styling)
+12. Use state and actions
+13. Add tags to the <head>
 
 ## 1. Create a Frontity Project
 
@@ -246,7 +247,7 @@ We now have to import the `Link` component into our `Root` component. Then we ad
 ```jsx
 // File: /packages/jsnation-theme/src/theme-files/index.js
 
-import Link from "./Link";
+import Link from "./link";
 
 const Root = ({ state }) => {
   return (
@@ -545,7 +546,320 @@ const Root = ({ state }) => {
 
 ## 10. Add some style
 
+Awesome, we now have a fully functioning website! But you're probably looking at it and thinking "I've seen prettier warthogs!"
 
+Let's fix that.
+
+Frontity uses CSS-in-JS for styling components. This has a number of advantages:
+
+- it only loads the CSS needed for each page which improves the performance
+- you don't have to worry about classes and problems with duplication, typos, etc
+- you don't have to worry about vendor prefixing so you can write your CSS based on the current standard and Frontity handles the rest for you
+- you can use all the power of JavaScript to style your components and create dynamic styles with much less code
+
+> You can learn more about styling your Frontity app [here](#https://docs.frontity.org/learning-frontity/styles).
+> Frontity uses Emotion for CSS-in-JS. Find out more [here](#https://emotion.sh/docs/introduction).
+
+The first thing we will do is create global styles. These apply site-wide and should be added to the root component of your theme. We'll change the font to be sans-serif. To do this import the `<Global>` component and the `css` function from Frontity into our root component.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+// ...
+import { connect, Global, css } from "frontity";
+
+const Root = ({ state }) => {
+
+  const data = state.source.get(state.router.link);
+
+  return (
+    <>
+      <Global
+        styles={css`
+          html {
+            font-family: sans-serif;
+          }
+        `}
+      />
+      {/* ... */}
+    </>
+  );
+};
+```
+
+The `css` function takes as it's argument a template literal, which in this case consists of standard CSS contained within backticks. These styles are applied to the `styles` attribute on the `Global` component. When you save the file you should notice that the fonts on your site have changed automatically.
+
+Now let's create some CSS components. These components are created using `styled`, which like `css` is a function. However the HTML tag that you want to style is appended with dot notation and then, again like `css`, the function takes a template literal containing CSS as it's argument.
+
+As a basic example let's start by creating a `<Header>` component and give it a background colour, though first we need to import `styled` from Frontity.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+// ...
+import { connect, Global, css, styled } from "frontity";
+// ...
+
+const Header = styled.header`
+  background-color: #eee;
+`
+```
+
+Once the `<Header>` component has been created let's use it in our root component.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+// ...
+const Root = ({ state, actions }) => {
+
+  const data = state.source.get(state.router.link)
+
+  return (
+    <>
+      <Global
+        styles={css`
+        html {
+            font-family: sans-serif;
+        }
+      `}
+      />
+      <Header>
+        <h1>Frontity Workshop</h1>
+        <p>Current URL: {state.router.link}</p>
+        <nav>
+          <Link href="/">Home</Link>
+          <Link href="/page/2">More posts</Link>
+          <Link href="/lorem-ipsum">Lorem Ipsum</Link>
+        </nav>
+      </Header>
+      <main>
+        {data.isArchive && <List />}
+        {data.isPost && <Post />}
+        {data.isPage && <Page />}
+      </main>
+    </>
+  );
+};
+```
+
+Now our header is contained within a nice light grey background. But notice the white border around it. Let's fix that by applying a basic reset to our `<Global>` component.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+// ...
+<Global
+        styles={css`
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-family: sans-serif;
+        }
+      `}
+      />
+// ...
+```
+
+This simple CSS reset will make styling our elements going forward much simpler with more consistent behaviour.
+
+Let's continue styling our header by adding a border to the bottom.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+// ...
+
+const Header = styled.header`
+  background-color: #eee;
+  border-width: 0 0 8px 0;
+  border-style: solid;
+  border-color: maroon;
+`
+```
+
+We also want to constrain our page width to 800px. To do that we will need to extra components, `<HeaderContent>` and `<Main>`. Let's add these, and we'll also style some elements within Main.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+// ...
+const Header = styled.header`
+  background-color: #eee;
+  border-width: 0 0 8px 0;
+  border-style: solid;
+  border-color: maroon;
+`
+const HeaderContent = styled.div`
+    max-width: 800px;
+    padding: 2em 1em;
+    margin: auto;
+`
+const Main = styled.main`
+    max-width: 800px;
+    padding: 1em;
+    margin: auto;
+
+    img {
+        max-width: 100%;
+    }
+    h2 {
+        margin: 0.5em 0;
+    }
+    p {
+        line-height: 1.25em;
+        margin-bottom: 0.75em;
+    }
+`
+```
+
+And again we'll use those elements in our root component.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+// ...
+const Root = ({ state, actions }) => {
+
+  const data = state.source.get(state.router.link)
+
+  return (
+    <>
+      <Global
+        styles={css`
+        html {
+            font-family: sans-serif;
+        }
+      `}
+      />
+      <Header>
+        <HeaderContent>
+          <h1>Frontity Workshop</h1>
+          <p>Current URL: {state.router.link}</p>
+          <nav>
+            <Link href="/">Home</Link>
+            <Link href="/page/2">More posts</Link>
+            <Link href="/lorem-ipsum">Lorem Ipsum</Link>
+          </nav>
+        </HeaderContent>
+      </Header>
+      <Main>
+        {data.isArchive && <List />}
+        {data.isPost && <Post />}
+        {data.isPage && <Page />}
+      </Main>
+    </>
+  );
+};
+```
+
+Now we'll style the menu...
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+// ...
+const Menu = styled.nav`
+    display: flex;
+    flex-direction: row;
+    margin-top: 1em;
+    & > div {
+        margin-right: 1em;
+    }
+`
+```
+
+...and replace the `nav` element in our `Root` component with the new `Menu` component.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+// ...
+ <Header>
+  <HeaderContent>
+    <h1>Frontity Workshop</h1>
+    <p>Current URL: {state.router.link}</p>
+    <Menu>
+      <Link href="/">Home</Link>
+      <Link href="/page/2">More posts</Link>
+      <Link href="/lorem-ipsum">Lorem Ipsum</Link>
+    </Menu>
+  </HeaderContent>
+</Header>
+// ...
+```
+
+We now have a pleasing looking header.
+
+Let's improve our `<List>` component. Open `list.js` and add an `<Items>` component and use it with `<List>`.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/list.js
+
+import React from "react"
+import { connect, styled } from "frontity"
+import Link from "./link"
+
+const List = ({ state }) => {
+  const data = state.source.get(state.router.link);
+
+  return (
+    <Items>
+      {data.items.map(item => {
+        const post = state.source.post[item.id];
+        return (
+          <Link href={post.link} key={post.id}>
+            {post.title.rendered}
+          </Link>
+        );
+      })}
+    </Items>
+  );
+};
+
+const Items = styled.div`
+  & > div {
+      margin: 12px 0;
+      font-size: 1.2em;
+  }
+`
+```
+
+And finally for this section let's make all our links a consistent colour.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/link.js
+
+import React from "react"
+import { connect, styled } from "frontity"
+
+const Link = ({href, actions, children}) => {
+  return (
+    <div>
+      <Anchor
+        href={href}
+        onClick={e => {
+          e.preventDefault()
+          actions.router.set(href)
+        }}
+      >
+        {children}
+      </Anchor>
+    </div>
+  )
+}
+
+export default connect(Link)
+
+const Anchor = styled.a`
+    color: steelblue;
+`
+```
+
+## 11. Add Dynamic Styling
 
 
 
