@@ -13,10 +13,11 @@ This readme also contains full instructions for creating the project from scratc
 5. [Add a menu](#add-a-menu)
 6. [Use data from the current URL](#use-data-from-the-current-URL)
 7. [Display the list of posts](#display-the-list-of-posts)
-8. Display the content of posts
-9. Add some style
-10. Use state and actions
-11. Add tags to the <head>
+8. [Display the content of posts](#display-the-content-of-posts)
+9. [Display the content of posts and pages separately](#display-the-content-of-posts-and-pages-separately)
+10. [Add some style](#add-some-style)
+11. Use state and actions
+12. Add tags to the <head>
 
 ## 1. Create a Frontity Project
 
@@ -416,10 +417,138 @@ const  List  = ({ state }) => {
 
 ## 8. Display the content of posts
 
+Create a new file called `post.js`. This will contain the `<Post>` component which we will use to display the title and the content of the posts.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/post.js
+
+import React from "react";
+import { connect } from "frontity";
+
+const Post = ({ state }) => {
+  const data = state.source.get(state.router.link);
+  const post = state.source[data.type][data.id];
+
+  return (
+    <div>
+      <h2>{post.title.rendered}</h2>
+      <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+    </div>
+  );
+};
+
+export default connect(Post);
+```
+
+And, as before, import it into the root component file and use it to display posts and pages.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+// ...
+import Post from "./Post";
+
+const Root = ({ state }) => {
+  const data = state.source.get(state.router.link);
+
+  return (
+    <>
+      {/* ... */}
+      <main>
+        {data.isArchive && <List />}
+        {data.isPost && <Post />}
+        {data.isPage && <Post />}
+      </main>
+    </>
+  );
+};
+```
+
+## 9. Display the content of posts and pages separately
+
+At the moment posts and pages both use the same component. But normally posts will display author and date information as well as tags, categories, etc...
+
+Let's distinguish between the two now.
+
+Create a new file and call it `page.js`. Copy the contents of `post.js` into `page.js` and rename the component.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/page.js
+
+import React from "react"
+import { connect } from "frontity"
+
+const Page = ({ state }) => {
+    const data = state.source.get(state.router.link)
+    const post = state.source[data.type][data.id]
+
+    return (
+        <div>
+            <h2>{post.title.rendered}</h2>
+            <div dangerouslySetInnerHTML={{ __html: post.content.rendered}} />
+        </div>
+    )
+}
+
+export default connect(Page)
+```
+
+At the moment `page.js` and `post.js` are pretty much identical, so let's now distinguish between them by adding author and date info to `post.js`.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/post.js
+
+import React from "react";
+import { connect } from "frontity";
+
+const Post = ({ state }) => {
+  const data = state.source.get(state.router.link);
+  const post = state.source[data.type][data.id];
+  const author = state.source.author[post.author]
+
+  return (
+    <div>
+      <h2>{post.title.rendered}</h2>
+      <p><strong>Posted: </strong>{post.date}</p>
+      <p><strong>Author: </strong>{author.name}</p>
+      <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+    </div>
+  );
+};
+
+export default connect(Post);
+```
+
+Finally in this section let's change the root component to import and use the `<Page>` component.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+// ...
+import Page from "./page"
+
+const Root = ({ state }) => {
+  const data = state.source.get(state.router.link);
+
+  return (
+    <>
+      {/* ... */}
+      <main>
+        {data.isArchive && <List />}
+        {data.isPost && <Post />}
+        {data.isPage && <Page />}
+      </main>
+    </>
+  );
+};
+```
+
+## 10. Add some style
 
 
 
-## Add some style
+
+
 ## Use state and actions
 ## Add tags to the <head>
 
