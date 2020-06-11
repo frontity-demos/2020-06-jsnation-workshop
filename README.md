@@ -19,7 +19,8 @@ This readme also contains full instructions for creating the project from scratc
 11. [Add dynamic styling](#add-dynamic-styling)
 12. [Use state and actions](#use-state-and-actions)
 13. [Add pagination](#add-pagination)
-14. Add tags to the `<head>`
+14. [Add tags to the `<head>` element](#add-tags-to-the-head-element)
+15. [Conclusion](#conclusion)
 
 ## 1. Create a Frontity Project
 
@@ -1084,7 +1085,7 @@ const Button = styled.button`
 Click on the `More posts` link in the menu to navigate to `/page/2` and examine `frontity.state` in the console. You will notice that the data for the page has both `previous` and `next` properties.
 
 <p>
-  <img alt="Frontity in the console" src="assets/console-5.png">
+  <img alt="Frontity in the console" src="assets/console-5.png" width="600">
 </p>
 
 We can use these properties to add pagination to our `<List>` component. We will add a `<PrevNextNav>` component to style two buttons that enable us to page through the lists of posts.
@@ -1152,14 +1153,45 @@ const PrevNextNav = styled.div`
 
 We've included conditional checks so that the 'Previous' button doesn't show on the first page and the 'Next' button doesn't show on the last page, as they're not needed in those locations.
 
-## 14. Add tags to the `<head>`
+## 14. Add tags to the `<head>` element
+
+You can use React to add tags to the `<head>` of your document. Tags such as a title and a description can be important for SEO so it makes sense for your theme to include them.
+
+Import the `<Head>` component, and everything you include within `<Head>...</Head>` tags will be inluded in the `<head>` section of your document.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+import { ..., Head } from "frontity";
+
+// ...
+
+const Root = ({ state, actions }) => {
+  const data = state.source.get(state.router.link);
+
+  return (
+    <>
+      <Head>
+        <title>Frontity Workshop at JS Nation</title>
+        <meta name="description" content="An introduction to creating a theme with Frontity" />
+      </Head>
+      {/* ... */}
+  );
+};
+```
+
+As it’s a React component, you can include it wherever you like. There’s no need for it to be in the `<Root>` component. Additionally you can use variables so that the tags change dynamically, just as you can with any other React component.
+
+Check your document with the browser devtools and you should see these showing up.
 
 
+<p>
+  <img alt="Frontity in the console" src="assets/console-6.png" width="700">
+</p>
 
+## 15. Conclusion
 
-
-
-
+At this point
 
 
 
