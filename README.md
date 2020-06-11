@@ -17,7 +17,7 @@ This readme also contains full instructions for creating the project from scratc
 9. [Display the content of posts and pages separately](#display-the-content-of-posts-and-pages-separately)
 10. [Add some style](#add-some-style)
 11. [Add dynamic styling](#add-dynamic-styling)
-12. Use state and actions
+12. [Use state and actions](#use-state-and-actions)
 13. Add tags to the <head>
 
 ## 1. Create a Frontity Project
@@ -481,12 +481,12 @@ import { connect } from "frontity"
 
 const Page = ({ state }) => {
     const data = state.source.get(state.router.link)
-    const post = state.source[data.type][data.id]
+    const page = state.source[data.type][data.id]
 
     return (
         <div>
-            <h2>{post.title.rendered}</h2>
-            <div dangerouslySetInnerHTML={{ __html: post.content.rendered}} />
+            <h2>{page.title.rendered}</h2>
+            <div dangerouslySetInnerHTML={{ __html: page.content.rendered}} />
         </div>
     )
 }
@@ -546,7 +546,7 @@ const Root = ({ state }) => {
 
 ## 10. Add some style
 
-Awesome, we now have a fully functioning website! But you're probably looking at it and thinking "I've seen prettier warthogs!"
+Awesome, we now have a fully functioning website! But you're probably looking at it and thinking "I've seen prettier warthogs!" 🐗
 
 Let's fix that.
 
@@ -828,7 +828,7 @@ const Items = styled.div`
 `
 ```
 
-And finally for this section let's make all our links a consistent colour.
+Now let's make all our links a consistent colour.
 
 ```jsx
 // File: /packages/jsnation-theme/src/theme-files/link.js
@@ -859,11 +859,227 @@ const Anchor = styled.a`
 `
 ```
 
+And finally for this section we'll highlight the author and date info in our `<Post>` component. Import `styled` into `post.js` and create and use a `<PostInfo>` component.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/post.js
+
+import React from "react"
+import { connect, styled } from "frontity"
+
+const Post = ({ state }) => {
+    const data = state.source.get(state.router.link)
+    const post = state.source[data.type][data.id]
+    const author = state.source.author[post.author]
+
+    return (
+        <div>
+            <h2>{post.title.rendered}</h2>
+            <PostInfo>
+                <p><strong>Posted: </strong>{post.date}</p>
+                <p><strong>Author: </strong>{author.name}</p>
+            </PostInfo>
+            <div dangerouslySetInnerHTML={{ __html: post.content.rendered}} />
+        </div>
+    )
+}
+
+export default connect(Post)
+
+const PostInfo = styled.div`
+    background-image: linear-gradient(to right, #f4f4f4, #fff);
+    margin-bottom: 1em;
+    padding: 0.5em;
+    border-left: 4px solid lightseagreen;
+
+    & > p {
+        margin: 0;
+    }
+`
+```
+
 ## 11. Add Dynamic Styling
 
+CSS-in-JS allows us to modify the styling of elements dynamically. Let's take a look at how we can do this.
+
+You will recall that we added an 8px wide border to the bottom of our header. We'll use that to indicate whether we're on a `list` page, a `post` page, or a `page`, erm..., page by changing the colour of the border.
+
+To do this we add a prop to the `<Header>` component.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+// ...
+<Header isPostType={data.isPostType}>
+// ...
+```
+
+This prop gets passed to a function that we add to our CSS that conditionally checks the boolean value passed in to determine what colour the border should be, i.e. either green in the case of a `post` or `page`, or maroon in the case of a `list`. We're no longer using JSX here so we need to prepend the function with a $ sign, and we also need to use the ternary operator - we cannot use `if...then...else` in JavaScript embedded within a template literal.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+// ...
+const Header = styled.header`
+  background-color: #eee;
+  border-width: 0 0 8px 0;
+  border-style: solid;
+  border-color: ${ props => props.isPostType ? : 'lightseagreen' : 'maroon'};
+`
+```
+
+Let's extend this to get a different colour for pages.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+// ...
+<Header isPostType={data.isPostType} isPage={data.isPage}>
+// ...
+
+// ...
+const Header = styled.header`
+  background-color: #eee;
+  border-width: 0 0 8px 0;
+  border-style: solid;
+  border-color: ${ props => props.isPostType ? props.isPage ? 'lightsteelblue' : 'lightseagreen' : 'maroon'};
+`
+```
+
+Awesome, our site is starting to look pretty good now!
+
+## 12. Use state and actions
+
+Now let's learn how we can use `state` and `actions` within our theme.
+
+Open `index.js` at the root of our theme and a new field called `isMenuOpen` in `state.theme`. We'll set it to default to `false`.
+
+```jsx
+// File: /packages/jsnation-theme/src/index.js
+
+import Root from "./theme-files";
+
+const jsNation = {
+  name: "jsnation-theme",
+  roots: {
+    theme: Root
+  },
+  state: {
+    theme: {
+      isMenuOpen: false
+    }
+  },
+  actions: {
+    theme: {}
+  }
+};
+
+export default jsNation
+```
+
+Then add two actions to change the value of this field. One of them will set the value to `true`, the other will set it to `false`. We'll use the state of this variable to determine whether the menu should be open or closed.
+
+```jsx
+// File: /packages/jsnation-theme/src/index.js
+
+import Root from "./theme-files";
+
+const jsNation = {
+  name: "jsnation-theme",
+  roots: {
+    theme: Root
+  },
+  state: {
+    theme: {
+      isMenuOpen: false
+    }
+  },
+  actions: {
+    theme: {
+      openMenu: ({state}) => {
+        state.theme.isMenuOpen = true
+      },
+      closeMenu: ({state}) => {
+        state.theme.isMenuOpen = false
+      }
+    }
+  }
+};
+
+export default jsNation
+```
+
+Now in the root component we'll add some conditional logic to check the value of `isMenuOpen` and either display the menu or not.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+// ...
+{ state.theme.isMenuOpen ? (
+    <Menu>
+      <Link href="/">Home</Link>
+      <Link href="/page/2">More posts</Link>
+      <Link href="/lorem-ipsum">Lorem Ipsum</Link>
+    </Menu>
+  ) : null
+}
+```
+
+You will find that the menu has disappeared, but if you change the value of `isMenuOpen` in `index.js` to `true` it will reappear. So let's add some buttons that use the actions we added earlier to change the value from the front end.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+// ...
+{state.theme.isMenuOpen ? (
+  <>
+    <button onClick={actions.theme.closeMenu}>Close</button>
+    <Menu>
+      <Link href="/">Home</Link>
+      <Link href="/page/2">More posts</Link>
+      <Link href="/lorem-ipsum">Lorem Ipsum</Link>
+    </Menu>
+  </>
+  ) : (
+      <button onClick={actions.theme.openMenu}>Menu</button>
+  )
+}
+```
+
+Note that we have to wrap the `button` element and `<Menu>` component in enclosing empty tags `<> ... </>`.
+
+Finally let's create a styled `Button` component and use it in order to improve the appearance.
+
+```jsx
+// File: /packages/jsnation-theme/src/theme-files/index.js
+
+// ...
+{state.theme.isMenuOpen ? (
+  <>
+    <Button onClick={actions.theme.closeMenu}>Close</Button>
+    <Menu>
+      <Link href="/">Home</Link>
+      <Link href="/page/2">More posts</Link>
+      <Link href="/lorem-ipsum">Lorem Ipsum</Link>
+    </Menu>
+  </>
+  ) : (
+      <Button onClick={actions.theme.openMenu}>Menu</Button>
+  )
+}
+// ...
+const Button = styled.button`
+  width: 92px;
+  margin: 1em 0 0;
+  padding: 0.5em;
+  background: white;
+  border: 1px solid #aaa;
+  color: #888;
+`
+```
 
 
-## Use state and actions
+
 ## Add tags to the <head>
 
 
