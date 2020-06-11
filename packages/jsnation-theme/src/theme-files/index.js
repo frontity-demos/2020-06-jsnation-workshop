@@ -41,7 +41,7 @@ const Root = ({ state, actions }) => {
             ) : (
                 <Button onClick={actions.theme.openMenu}>Menu</Button>
             )
-        }
+            }
         </HeaderContent>
       </Header>
       <Main>
