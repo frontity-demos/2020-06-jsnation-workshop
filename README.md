@@ -584,9 +584,9 @@ Frontity uses CSS-in-JS for styling components. This has a number of advantages:
 - you don't have to worry about vendor prefixing so you can write your CSS based on the current standard and Frontity handles the rest for you
 - you can use all the power of JavaScript to style your components and create dynamic styles with much less code
 
-> You can learn more about styling your Frontity app [here](#https://docs.frontity.org/learning-frontity/styles).
+> You can learn more about styling your Frontity app [here](https://docs.frontity.org/learning-frontity/styles).
 
-> Frontity uses Emotion for CSS-in-JS. Find out more [here](#https://emotion.sh/docs/introduction).
+> Frontity uses Emotion for CSS-in-JS. Find out more [here](https://emotion.sh/docs/introduction).
 
 The first thing we will do is create global styles. These apply site-wide and should be added to the root component of your theme. We'll change the font to be sans-serif. To do this import the `<Global>` component and the `css` function from Frontity into our root component.
 
