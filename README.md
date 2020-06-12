@@ -1242,6 +1242,8 @@ Once you have a completed project you can then find out [how to deploy it](https
 
 Below you can find further resources to help you with developing projects with Frontity.
 
+By the way, we are running a competion in conjunction with the JS Nation Live conference. [Click here](https://frontity.org/frontity-jsnation-contest/) for more details. We look forward to receiving your submissions. Good luck!
+
 Thanks for following to the end 👏👏👏, and we wish you every success with your future endeavours with Frontity.
 
 > *[Back to top](#table-of-contents)*
