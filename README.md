@@ -410,7 +410,7 @@ const Root = ({ state }) => {
 };
 ```
 
-And now let's change the `<List>` component to use the information about each of the posts to show the title and turn it into a link.
+And now let's change the `<List>` component to use the information about each of the posts to show the title and turn it into a link. Remember to import the `<Link>` component into `list.js`!
 
 ```jsx
 // File: /packages/jsnation-theme/src/theme-files/list.js
@@ -569,6 +569,8 @@ const Root = ({ state }) => {
 };
 ```
 
+Now as you navigate around the site and view posts and pages you 'll notice that posts have the author and date info but pages do not.
+
 > *[Back to top](#table-of-contents)*
 
 ## 10. Add some style
@@ -633,7 +635,7 @@ const Header = styled.header`
 `
 ```
 
-Once the `<Header>` component has been created let's use it in our root component.
+Once the `<Header>` component has been created let's use it in our root component to wrap all the elements that we want contained in the header section of our site.
 
 ```jsx
 // File: /packages/jsnation-theme/src/theme-files/index.js
@@ -671,7 +673,7 @@ const Root = ({ state, actions }) => {
 };
 ```
 
-Now our header is contained within a nice light grey background. But notice the white border around it. Let's fix that by applying a basic CSS reset to our `<Global>` component.
+Now our header is contained within a nice light grey background. But notice the rather ugly white border around it. Let's fix that by applying a basic CSS reset to our `<Global>` component.
 
 ```jsx
 // File: /packages/jsnation-theme/src/theme-files/index.js
@@ -709,7 +711,7 @@ const Header = styled.header`
 `
 ```
 
-We also want to constrain our page width to 800px. To do that we will need to extra components, `<HeaderContent>` and `<Main>`. Let's add these, and we'll also style some elements within Main.
+We also want to constrain our page width to 800px. To do that we will need to add a couple of extra components, `<HeaderContent>` and `<Main>`. Let's add these, and we'll also style some elements within Main.
 
 ```jsx
 // File: /packages/jsnation-theme/src/theme-files/index.js
@@ -822,7 +824,7 @@ const Menu = styled.nav`
 
 We now have a pleasing looking header.
 
-Let's improve our `<List>` component. Open `list.js` and add an `<Items>` component and use it with `<List>`. Remember also to import `styled` from `frontity`.
+Let's improve the appearance of our `<List>` component. Open `list.js` and add an `<Items>` component and use it with `<List>`. Remember also to import `styled` from `frontity`.
 
 ```jsx
 // File: /packages/jsnation-theme/src/theme-files/list.js
@@ -1043,7 +1045,7 @@ const jsNation = {
 export default jsNation
 ```
 
-Now in the root component we'll add some conditional logic to check the value of `isMenuOpen` and either display the menu or not.
+Now in the root component we'll add some conditional logic to check the value of `isMenuOpen` and either display the menu or not. Again we have to use the ternary conditional operator here.
 
 ```jsx
 // File: /packages/jsnation-theme/src/theme-files/index.js
@@ -1198,7 +1200,7 @@ We've included conditional checks so that the 'Previous' button doesn't show on 
 
 ## 14. Add tags to the `<head>` element
 
-You can use React to add tags to the `<head>` of your document. Tags such as a title and a description can be important for SEO so it makes sense for your theme to include them.
+You can use React to add tags to the `<head>` of your document. Tags such as a title and a description can be important for SEO so it's good practice if your theme includes them.
 
 Import the `<Head>` component, and everything you include within `<Head>...</Head>` tags will be inluded in the `<head>` section of your document.
 
@@ -1242,7 +1244,7 @@ Once you have a completed project you can then find out [how to deploy it](https
 
 Below you can find further resources to help you with developing projects with Frontity.
 
-By the way, we are **running a competion** in conjunction with the JS Nation Live conference. [Click here](https://frontity.org/frontity-jsnation-contest/) for more details. We look forward to receiving your submissions. Good luck!
+By the way, we are **running a competion** in conjunction with the [JS Nation Live](https://live.jsnation.com/) conference. **[Click here](https://frontity.org/frontity-jsnation-contest/)** for more details. We look forward to receiving your submissions. Good luck!
 
 Thanks for following to the end 👏👏👏, and we wish you every success with your future endeavours with Frontity.
 
