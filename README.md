@@ -671,7 +671,7 @@ const Root = ({ state, actions }) => {
 };
 ```
 
-Now our header is contained within a nice light grey background. But notice the white border around it. Let's fix that by applying a basic reset to our `<Global>` component.
+Now our header is contained within a nice light grey background. But notice the white border around it. Let's fix that by applying a basic CSS reset to our `<Global>` component.
 
 ```jsx
 // File: /packages/jsnation-theme/src/theme-files/index.js
@@ -822,7 +822,7 @@ const Menu = styled.nav`
 
 We now have a pleasing looking header.
 
-Let's improve our `<List>` component. Open `list.js` and add an `<Items>` component and use it with `<List>`.
+Let's improve our `<List>` component. Open `list.js` and add an `<Items>` component and use it with `<List>`. Remember also to import `styled` from `frontity`.
 
 ```jsx
 // File: /packages/jsnation-theme/src/theme-files/list.js
@@ -884,6 +884,7 @@ export default connect(Link)
 
 const Anchor = styled.a`
     color: steelblue;
+    text-decoration: none;
 `
 ```
 
@@ -919,6 +920,7 @@ const PostInfo = styled.div`
     margin-bottom: 1em;
     padding: 0.5em;
     border-left: 4px solid lightseagreen;
+    font-size: 0.8em;
 
     & > p {
         margin: 0;
@@ -932,7 +934,7 @@ const PostInfo = styled.div`
 
 CSS-in-JS allows us to modify the styling of elements dynamically. Let's take a look at how we can do this.
 
-You will recall that we added an 8px wide border to the bottom of our header. We'll use that to indicate whether we're on a `list` page, a `post` page, or a `page`, erm..., page by changing the colour of the border.
+You will recall that we added an 8px wide border to the bottom of our header. We'll use that to indicate whether we're on a `list` page, a `post` page, or a `page`, erm..., page 🤷🏻‍♂️ by changing the colour of the border.
 
 To do this we add a prop to the `<Header>` component.
 
@@ -976,15 +978,15 @@ const Header = styled.header`
 `
 ```
 
-Awesome, our site is starting to look pretty good now!
+Awesome, our site is starting to look pretty good now! 👌
 
 > *[Back to top](#table-of-contents)*
 
 ## 12. Use state and actions
 
-Now let's learn how we can use `state` and `actions` within our theme.
+Now let's learn how we can use `state` and `actions` within our theme to develop a bit of interactivity. We're going to add the option to show/hide the menu.
 
-Open `index.js` at the root of our theme and a new field called `isMenuOpen` in `state.theme`. We'll set it to default to `false`.
+Open `index.js` at the root of our theme and add a new field called `isMenuOpen` in `state.theme`. We'll set it to default to `false`.
 
 ```jsx
 // File: /packages/jsnation-theme/src/index.js
@@ -1063,6 +1065,11 @@ You will find that the menu has disappeared, but if you change the value of `isM
 // File: /packages/jsnation-theme/src/theme-files/index.js
 
 // ...
+
+const Root = ({ state, actions }) => {
+
+// ...
+
 {state.theme.isMenuOpen ? (
   <>
     <button onClick={actions.theme.closeMenu}>Close</button>
@@ -1078,7 +1085,7 @@ You will find that the menu has disappeared, but if you change the value of `isM
 }
 ```
 
-Note that we have to wrap the `button` element and `<Menu>` component in enclosing empty tags `<> ... </>`.
+Note that we have to wrap the `button` element and `<Menu>` component in enclosing empty tags `<> ... </>`. Remember too that we need to pass `actions` to the `Root` component.
 
 Finally let's create a styled `Button` component and use it in order to improve the appearance.
 
@@ -1145,12 +1152,14 @@ const List = ({ state, actions }) => {
                 )
             })}
             <PrevNextNav>
-                { data.previous ? <button onClick={e => {
-                    actions.router.set(data.previous)
-                }}>&#171; Prev</button> : ' ' }
-                { data.next ? <button onClick={e => {
-                    actions.router.set(data.next)
-                }}>Next &#187;</button> : ' ' }
+                { data.previous ?
+                  <button onClick={e => actions.router.set(data.previous) }>&#171; Prev</button> :
+                  ' '
+                }
+                { data.next ?
+                  <button onClick={e => actions.router.set(data.next) }>Next &#187;</button> :
+                  ' '
+                }
             </PrevNextNav>
         </Items>
     )
@@ -1233,7 +1242,7 @@ Once you have a completed project you can then find out [how to deploy it](https
 
 Below you can find further resources to help you with developing projects with Frontity.
 
-Thanks for following to the end, and we wish you every success with your future endeavours with Frontity.
+Thanks for following to the end 👏👏👏, and we wish you every success with your future endeavours with Frontity.
 
 > *[Back to top](#table-of-contents)*
 
