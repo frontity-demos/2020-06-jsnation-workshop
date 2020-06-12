@@ -46,7 +46,7 @@ npx frontity dev
 
 Now open `http://localhost:3000` in your browser (if it didn't open automatically) to see your first Frontity project. At the moment it's using the "starter theme" that comes with Frontity, i.e. @frontity/mars-theme, and it is connected to a test WordPress site (https://test.frontity.io).
 
-The next step is to change the project’s settings to point to the REST API of our own website (https://jsnation2020.frontity.org) - yes, the URL is pretty ugly, but it's just for test purposes. 😀
+The next step is to change the project’s settings to point to the REST API of our own website (https://jsnation2020.frontity.org).
 
 - Open the file `frontity.settings.js` file. This file contains the configuration for the Frontity packages that you are using in your project.
 
