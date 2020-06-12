@@ -323,11 +323,11 @@ So now let’s inspect the homepage using state.source.get("/"):
   <img alt="Frontity in the console" src="assets/console-4.png" width="700">
 </p>
 
-As you can see, it has several interesting properties such as `isHome`, `isArchive`, and an array of `items`. If the homepage were a category it would have an `isCategory` property. If it were a post it would have a `isPost` property, etc...
+As you can see, it has several interesting properties such as `isHome`, `isArchive`, and an array of `items`. If the homepage were a category it would have an `isCategory` property. If it were a post it would have an `isPost` property, etc...
 
 To wrap up this section let's use all of this in our code.
 
-For our next step we obtain the information about the current link (`state.router.link`) and use it to see if it’s a `list`, a `post`, or a `page`.
+In this next step we **`get`** the information about the current link (`state.router.link`) and use it to see if it’s a `list`, a `post`, or a `page`.
 
 ```jsx
 // File: /packages/jsnation-theme/src/theme-files/index.js
