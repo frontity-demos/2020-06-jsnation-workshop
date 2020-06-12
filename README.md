@@ -786,7 +786,9 @@ const Root = ({ state, actions }) => {
 };
 ```
 
-Now we'll style the menu...
+Incidentally, this is where the [WordPress Theme Unit Test](https://github.com/WPTT/theme-unit-test) really starts to come into it's own. Since all post and page content is going to appear within the `<Main>` component you can keep adding elements to the definition of that component and styling them until all the unit tests pass. This will ensure that your theme is robust and will properly render any content that gets thrown at it. So far we've only minimally styled `img`, `h2`, and `p`.
+
+For now though we'll turn our attention back to the header section and style the menu...
 
 ```jsx
 // File: /packages/jsnation-theme/src/theme-files/index.js
