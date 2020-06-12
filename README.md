@@ -1255,8 +1255,8 @@ Thanks for following to the end 👏👏👏, and we wish you every success with
 We'd love for you to be part of our ever-growing community. There are a variety of different ways in which you can find information about the project, discuss about it, and contribute to it.
 
 - 📖 **[Docs](https://docs.frontity.org)**: this is the place to learn how to build amazing sites with Frontity.
-- 👨‍👩‍👧‍👦 **[Community forum](https://community.frontity.org/)**: join our forum and ask questions, share your knowledge, give us feedback and tell us how we're doing, and meet other cool Frontity people. We'd also love to know about what you're building with Frontity, so please do swing by the [forum](https://community.frontity.org/c/dev-talk-questions)and tell us about your projects.
-- 🐞 **[GitHub](https://github.com/frontity/frontity)**: we use GitHub for bugs and pull requests. See our [Contributing section](#https://docs.frontity.org/contributing) to find out how you can help develop Frontity, or improve this documentation.
+- 👨‍👩‍👧‍👦 **[Community forum](https://community.frontity.org/)**: join our forum and ask questions, share your knowledge, give us feedback and tell us how we're doing, and meet other cool Frontity people. We'd also love to know about what you're building with Frontity, so please do swing by the [forum](https://community.frontity.org/c/dev-talk-questions) and tell us about your projects.
+- 🐞 **[GitHub](https://github.com/frontity/frontity)**: we use GitHub for bugs and pull requests. See our [Contributing section](https://docs.frontity.org/contributing) to find out how you can help develop Frontity, or improve this documentation.
 - 🗣 **Social media**: interact with other Frontity users. Reach out to us on [Twitter](https://twitter.com/frontity). Mention us in your tweets about Frontity and what you're building by using `@frontity`.
 - 💌 **Newsletter**: do you want to receive the latest news about Frontity and find out as soon as there's an update to the framework? Subscribe to our [newsletter](https://frontity.org/).
 
