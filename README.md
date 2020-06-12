@@ -225,7 +225,7 @@ const Root = ({ state }) => {
 
 export default connect(Root);
 ```
-You can try changing the URL to something like http://localhost:3000/hello-frontity to see how the `state.router.link` changes.
+You can try changing the URL in the browser's address bar to something like http://localhost:3000/hello-frontity to see how the `state.router.link` changes.
 
 > *[Back to top](#table-of-contents)*
 
@@ -315,7 +315,7 @@ If we open the Network tab (in the browser's devtools) and click on the menu to 
 
 Take another look at `state.source.data`. You will notice that it's been populated with much more data than before.
 
-Please note that instead of using `state.source.data[url]` it’s better to use `state.source.get(url)`. This ensures that URLs always include the final slash (/).
+Please note that instead of using `state.source.data[url]` it’s better to use the `get` helper function: `state.source.get(url)`. This ensures that URLs always include the final slash (/).
 
 So now let’s inspect the homepage using state.source.get("/"):
 
@@ -392,7 +392,7 @@ We need to import it into our root component and use it.
 // File:  /packages/jsnation-theme/src/theme-files/index.js
 
 // ...
-import List from "./List";
+import List from "./list";
 
 const Root = ({ state }) => {
   const data = state.source.get(state.router.link);
@@ -417,7 +417,7 @@ And now let's change the `<List>` component to use the information about each of
 
 import  React  from  " react " ;
 import { connect } from  " frontity " ;
-import  Link  from  " ./Link " ;
+import  Link  from  " ./link " ;
 
 const  List  = ({ state }) => {
    const  data  =  state.source.get(state.router.link );
@@ -470,7 +470,7 @@ And, as before, import it into the root component file and use it to display pos
 // File: /packages/jsnation-theme/src/theme-files/index.js
 
 // ...
-import Post from "./Post";
+import Post from "./post";
 
 const Root = ({ state }) => {
   const data = state.source.get(state.router.link);
@@ -585,6 +585,7 @@ Frontity uses CSS-in-JS for styling components. This has a number of advantages:
 - you can use all the power of JavaScript to style your components and create dynamic styles with much less code
 
 > You can learn more about styling your Frontity app [here](#https://docs.frontity.org/learning-frontity/styles).
+
 > Frontity uses Emotion for CSS-in-JS. Find out more [here](#https://emotion.sh/docs/introduction).
 
 The first thing we will do is create global styles. These apply site-wide and should be added to the root component of your theme. We'll change the font to be sans-serif. To do this import the `<Global>` component and the `css` function from Frontity into our root component.
