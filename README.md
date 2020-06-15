@@ -46,7 +46,7 @@ npx frontity dev
 
 > `npx` downloads an npm package to run just this one time and then removes it from your computer. [learn more](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b)
 
-Now open `http://localhost:3000` in your browser (if it didn't open automatically) to see your first Frontity project. At the moment it's using the "starter theme" that comes with Frontity, i.e. `@frontity/mars-theme`, and it is connected to a test WordPress site (https://test.frontity.io).
+Now open `http://localhost:3000` in your browser (if it didn't open automatically) to see your first Frontity project. At the moment it's using the "starter theme" that comes with Frontity, i.e. `@frontity/mars-theme`, and it is connected to a test WordPress site (https://test.frontity.org).
 
 The next step is to change the project’s settings to point to the REST API of our own website (https://jsnation2020.frontity.org).
 
@@ -58,7 +58,7 @@ Replace this:
 ```js
 state: {
   source: {
-    api: "https://test.frontity.io/wp-json"
+    api: "https://test.frontity.org/wp-json"
   }
 }
 ```
@@ -1022,6 +1022,8 @@ export default jsNation
 ```
 
 Then add two actions to change the value of this field. One of them will set the value to `true`, the other will set it to `false`. We'll use the state of this variable to determine whether the menu should be open or closed.
+
+> This is the proper way to mutate state. You should never mutate the state directly from your components. You should, instead, create actions to mutate state and call those actions from your components.
 
 ```jsx
 // File: /packages/jsnation-theme/src/index.js
