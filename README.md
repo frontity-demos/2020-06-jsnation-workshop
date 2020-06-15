@@ -33,6 +33,8 @@ To do so, open up your terminal, navigate to the folder where you want to instal
 npx frontity create jsnation-frontity
 ```
 
+Select the `mars-theme` - it's the basic starter theme that we recommend for beginners.
+
 When the install process finishes, you will have a new sub-folder called `jsnation-frontity` containing your project’s code.
 
 Start a development server to check that everything is working:
@@ -44,13 +46,13 @@ npx frontity dev
 
 > `npx` downloads an npm package to run just this one time and then removes it from your computer. [learn more](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b)
 
-Now open `http://localhost:3000` in your browser (if it didn't open automatically) to see your first Frontity project. At the moment it's using the "starter theme" that comes with Frontity, i.e. @frontity/mars-theme, and it is connected to a test WordPress site (https://test.frontity.io).
+Now open `http://localhost:3000` in your browser (if it didn't open automatically) to see your first Frontity project. At the moment it's using the "starter theme" that comes with Frontity, i.e. `@frontity/mars-theme`, and it is connected to a test WordPress site (https://test.frontity.io).
 
 The next step is to change the project’s settings to point to the REST API of our own website (https://jsnation2020.frontity.org).
 
 - Open the file `frontity.settings.js` file. This file contains the configuration for the Frontity packages that you are using in your project.
 
-- Change the value of the `api` field of the `@frontity/wp-source package`.
+- Change the value of the `api` field of the `@frontity/wp-source` package.
 
 Replace this:
 ```js
@@ -264,6 +266,8 @@ We now have to import the `Link` component into our `Root` component. Then we ad
 ```jsx
 // File: /packages/jsnation-theme/src/theme-files/index.js
 
+import React from "react";
+import { connect } from "frontity";
 import Link from "./link";
 
 const Root = ({ state }) => {
@@ -279,6 +283,8 @@ const Root = ({ state }) => {
     </>
   );
 };
+
+export default connect(Root);
 ```
 
 > *[Back to top](#table-of-contents)*
