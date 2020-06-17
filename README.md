@@ -1164,13 +1164,19 @@ const List = ({ state, actions }) => {
                 )
             })}
             <PrevNextNav>
-                { data.previous && <button onClick={ () => {
+                {
+                    data.previous && <button onClick={ () => {
                         actions.router.set(data.previous)
-                    } }>&#171; Prev</button>
+                    } }>
+                        &#171; Prev
+                    </button>
                 }
-                { data.next && <button onClick={ () => {
+                {
+                    data.next && <button onClick={ () => {
                         actions.router.set(data.next)
-                    } }>Next &#187;</button>
+                    } }>
+                        Next &#187;
+                    </button>
                 }
             </PrevNextNav>
         </Items>
