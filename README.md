@@ -8,14 +8,14 @@ This readme also contains full instructions for creating the project from scratc
 
 1. [Create a Frontity Project](#1-create-a-Frontity-Project)
 2. [Create a custom theme from scratch](#2-create-a-custom-theme-from-scratch)
-3. [Modify the first component](#3-modify-the-first-component)
-4. [Connect it to the state](#4-connect-it-to-the-state)
+3. [Modify the `<Root>` component](#3-modify-the-first-component)
+4. [Connect the `<Root>` component to the state](#4-connect-it-to-the-state)
 5. [Add a menu](#5-add-a-menu)
 6. [Use data from the current URL](#6-use-data-from-the-current-URL)
 7. [Display the list of posts](#7-display-the-list-of-posts)
-8. [Display the content of posts](#8-display-the-content-of-posts)
-9. [Display the content of posts and pages separately](#9-display-the-content-of-posts-and-pages-separately)
-10. [Add some style](#10-add-some-style)
+8. [Display the post content](#8-display-the-content-of-posts)
+9. [Display posts and pages separately](#9-display-the-content-of-posts-and-pages-separately)
+10. [Add styling](#10-add-some-style)
 11. [Add dynamic styling](#11-add-dynamic-styling)
 12. [Use state and actions](#12-use-state-and-actions)
 13. [Add pagination](#13-add-pagination)
@@ -135,7 +135,7 @@ You will see this in your browser:
 
 > *[Back to top](#table-of-contents)*
 
-## 3. Modify the first component
+## 3. Modify the `<Root>` component
 
 Let's start by modifying the `<Root>` component in the `/packages/jsnation-theme/src/index.js` file so that it returns a `<h1>` containing the text “Frontity Workshop”.
 
@@ -202,7 +202,7 @@ Save both files and check that everything is still working in the browser.
 
 > *[Back to top](#table-of-contents)*
 
-## 4. Connect it to the state
+## 4. Connect the `<Root>` component to the state
 
 Let’s connect the `<Root>` component to the Frontity state using `connect`. This allows us to access data stored in the state.
 
@@ -445,7 +445,7 @@ const  List  = ({ state }) => {
 
 > *[Back to top](#table-of-contents)*
 
-## 8. Display the content of posts
+## 8. Display the post content
 
 Create a new file called `post.js`. This will contain the `<Post>` component which we will use to display the title and the content of the posts.
 
@@ -496,7 +496,7 @@ const Root = ({ state }) => {
 
 > *[Back to top](#table-of-contents)*
 
-## 9. Display the content of posts and pages separately
+## 9. Display posts and pages separately
 
 At the moment posts and pages both use the same component. But normally posts will display author and date information as well as tags, categories, etc...
 
@@ -579,7 +579,7 @@ Now as you navigate around the site and view posts and pages you 'll notice that
 
 > *[Back to top](#table-of-contents)*
 
-## 10. Add some style
+## 10. Add styling
 
 Awesome, we now have a fully functioning website! But you're probably looking at it and thinking "I've seen prettier warthogs!" 🐗
 
