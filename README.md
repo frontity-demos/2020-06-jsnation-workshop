@@ -1,5 +1,8 @@
 # Build a React-based Theme for WordPress with Frontity
 
+[![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?style=flat-square&logo=codesandbox)](https://githubbox.com/frontity-demos/2020-06-jsnation-workshop)
+
+
 [![Michael Burridge JSNation Workshop](https://scontent-mad1-1.xx.fbcdn.net/v/t1.0-9/104286127_395701848021540_1868095162819850179_o.png?_nc_cat=102&_nc_sid=8024bb&_nc_ohc=MNuN8BR9gEAAX-Wu-lT&_nc_ht=scontent-mad1-1.xx&oh=8dcbccd46689089d39a3d3ffdc1d8242&oe=5F5B13B0)](https://www.youtube.com/watch?v=QFY3GPfoKR4)
 
 This repo contains the complete theme created for 'Build a React-based Theme for WordPress with Frontity', a workshop/webinar held on 15 June 2020 at the [JS Nation Live conference](https://live.jsnation.com/).
