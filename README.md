@@ -13,20 +13,20 @@ This readme also contains full instructions for creating the project from scratc
 
 1. [Create a Frontity Project](#1-create-a-Frontity-Project)
 2. [Create a custom theme from scratch](#2-create-a-custom-theme-from-scratch)
-3. [Modify the `<Root>` component](#3-modify-the-first-component)
-4. [Connect the `<Root>` component to the state](#4-connect-it-to-the-state)
+3. [Modify the `<Root>` component](#3-modify-the-root-component)
+4. [Connect the `<Root>` component to the state](#4-connect-the-root-component-to-the-state)
 5. [Add a menu](#5-add-a-menu)
 6. [Use data from the current URL](#6-use-data-from-the-current-URL)
 7. [Display the list of posts](#7-display-the-list-of-posts)
-8. [Display the post content](#8-display-the-content-of-posts)
-9. [Display posts and pages separately](#9-display-the-content-of-posts-and-pages-separately)
-10. [Add styling](#10-add-some-style)
+8. [Display the post content](#8-display-the-post-content)
+9. [Display posts and pages separately](#9-display-posts-and-pages-separately)
+10. [Add styling](#10-add-styling)
 11. [Add dynamic styling](#11-add-dynamic-styling)
 12. [Use state and actions](#12-use-state-and-actions)
 13. [Add pagination](#13-add-pagination)
 14. [Add tags to the `<head>` element](#14-add-tags-to-the-head-element)
 15. [Conclusion](#15-conclusion)
-16. [Frontity Channels](#16-frontity-channels)
+16. [Get involved](#16-get-involved)
 
 ## 1. Create a Frontity Project
 
@@ -1269,14 +1269,14 @@ Thanks for following to the end 👏👏👏, and we wish you every success with
 
 > *[Back to top](#table-of-contents)*
 
-## 16. Frontity Channels
+## 16. Get involved
 
 We'd love for you to be part of our ever-growing community. There are a variety of different ways in which you can find information about the project, discuss about it, and contribute to it.
 
 - 📖 **[Docs](https://docs.frontity.org)**: this is the place to learn how to build amazing sites with Frontity.
-- 👨‍👩‍👧‍👦 **[Community forum](https://community.frontity.org/)**: join our forum and ask questions, share your knowledge, give us feedback and tell us how we're doing, and meet other cool Frontity people. We'd also love to know about what you're building with Frontity, so please do swing by the [forum](https://community.frontity.org/c/dev-talk-questions) and tell us about your projects.
+- 👨‍👩‍👧‍👦 **[Community forum](https://community.frontity.org/)**: join the Frontity community and ask questions, share your knowledge, give feedback, and meet other cool people. We'd also love to know about what you're building with Frontity, so please do swing by the [forum](https://community.frontity.org/c/dev-talk-questions) and tell us about your projects.
 - 🐞 **[GitHub](https://github.com/frontity/frontity)**: we use GitHub for bugs and pull requests. See our [Contributing section](https://docs.frontity.org/contributing) to find out how you can help develop Frontity, or improve this documentation.
-- 🗣 **Social media**: interact with other Frontity users. Reach out to us on [Twitter](https://twitter.com/frontity). Mention us in your tweets about Frontity and what you're building by using `@frontity`.
+- 🗣 **Social media**: follow us on [Twitter](https://twitter.com/frontity), [Youtube](https://www.youtube.com/c/Frontity/), and other social channels for updates and new videos. Help inspire others by writing tutorials about how you're using Frontity, and let us know so we can share (you can mention us in your tweets by using `@frontity` or the hashtag #MadeWithFrontity).
 - 💌 **Newsletter**: do you want to receive the latest news about Frontity and find out as soon as there's an update to the framework? Subscribe to our [newsletter](https://frontity.org/).
 
 > *[Back to top](#table-of-contents)*
